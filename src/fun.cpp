@@ -35,18 +35,17 @@ unsigned int faStr2(const char *str) {
     bool flagCorrect = false, flagSpace = true;
 
     for (int i = 0; str[i] != '\0'; i++) {
-        // проверяем корректность слова
-        // заглавные буквы не должны встречаться после первой.
+    // проверяем корректность слова
+    // заглавные буквы не должны встречаться после первой.
         if (str[i] >= 'A' && str[i] <= 'Z' && flagSpace != false) {
             flagCorrect = true;
         }
 
         if (str[i] >= 'A' && str[i] <= 'z') {
             flagSpace = false;
-        }
-        else if (str[i] != ' ') {
+        } else if (str[i] != ' ') {
             flagCorrect = false;
-            } else {
+        } else {
             if (flagCorrect == true) {
                 res++;
             }
@@ -81,6 +80,6 @@ unsigned int faStr3(const char *str) {
         count++;
     } // проверяем последнее слово
 
-    float rounded = sum/count; // среднее арифметическое
-    return static_cast<int>(rounded + 0.5); // приведение к int отбрасывает дробную часть
+    float rounded = sum/count;
+    return static_cast<int>(rounded + 0.5);
 }
