@@ -48,7 +48,24 @@ unsigned int faStr2(const char *str) {
 }
 
 unsigned int faStr3(const char *str) {
-    int res = 0;
+    int count = 0, sum = 0; // res - результат (средняя длина слова в строке), 
+                            // count - для подсчета кол-ва слов, sum - для подсчета кол-ва букв в строке.
+    bool flag = false;      // flag - проверка на конец слова
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] != ' ') {
+            sum++;
+            flag = true;
+        }
+        if (str[i] == ' ') {
+            if (flag != false) { count++; }
+            flag = false;
+        }
+    }
+
+    if (flag != false) { count++; } // проверяем последнее слово
+
+    float rounded = sum/count;      // среднее арифметическое
+    int res = int(rounded + 0.5);   // приведение к int отбрасывает дробную часть
     
     return res;
 }
