@@ -42,8 +42,7 @@ unsigned int faStr2(const char *str) {
         if (str[i] >= 'A' && str[i] <= 'z') {
             flagSpace = false;
         }
-        else if (str[i] != ' ') { flagCorrect = false; }
-        else {
+        else if (str[i] != ' ') { flagCorrect = false; } else {
             if (flagCorrect == true) { res++; }
             flagCorrect = false; // ставим флаги по дефолту
             flagSpace = true;
@@ -74,7 +73,7 @@ unsigned int faStr3(const char *str) {
     if (flag != false) { count++; } // проверяем последнее слово
 
     float rounded = sum/count; // среднее арифметическое
-    int res = int(rounded + 0.5); // приведение к int отбрасывает дробную часть
+    int res = static_cast<int>(rounded + 0.5); // приведение к int отбрасывает дробную часть
 
     return res;
 }
