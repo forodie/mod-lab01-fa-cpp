@@ -2,10 +2,12 @@
 #include "fun.h"
 
 unsigned int faStr1(const char *str) {
-    int res = 0; // res - для подсчета слов
-    bool flag_1 = false, flag_2 = false; // flag_1 - если встретили
-                                         // цифру в слове, будет true
-                                         
+    // res - для подсчета слов
+    // flag_1 - если встретили
+    // цифру в слове, будет true
+    int res = 0;
+    bool flag_1 = false, flag_2 = false;
+
     for (int i = 0; str[i] != '\0'; i++) {
         if ('0' <= str[i] && str[i] <= '9') {
             flag_1 = true;
@@ -15,12 +17,12 @@ unsigned int faStr1(const char *str) {
             flag_2 = true;
         }
 
-        if (str[i] == ' ' && flag_2 == true) { // проверяем, конец слова 
-                                               // или нет. (слово - символы до пробела)
-            if (flag_1 == false) {             // если в слове не было цифры (false),
-                res++;                         // то засчитываем +1 в result.
+    // проверяем, конец слова или нет
+        if (str[i] == ' ' && flag_2 == true) {
+            if (flag_1 == false) { // если в слове не было цифры (false),
+                res++; // то засчитываем +1 в result.
             }
-            flag_1 = false;                    // обнуляем флаги.
+            flag_1 = false; // обнуляем флаги.
             flag_2 = false;
         }
     }
@@ -52,10 +54,12 @@ unsigned int faStr2(const char *str) {
 }
 
 unsigned int faStr3(const char *str) {
-    int count = 0, sum = 0; // res - результат (средняя длина слова в строке),
-                            // count - для подсчета кол-ва слов,
-                            // sum - для подсчета кол-ва букв в строке.
-    bool flag = false;      // flag - проверка на конец слова
+    // res - результат (средняя длина слова в строке),
+    // count - для подсчета кол-ва слов,
+    // sum - для подсчета кол-ва букв в строке
+    // flag - проверка на конец слова
+    int count = 0, sum = 0;
+    bool flag = false;
     for (int i = 0; str[i] != '\0'; i++) {
         if (str[i] != ' ') {
             sum++;
@@ -69,8 +73,8 @@ unsigned int faStr3(const char *str) {
 
     if (flag != false) { count++; } // проверяем последнее слово
 
-    float rounded = sum/count;      // среднее арифметическое
-    int res = int(rounded + 0.5);   // приведение к int отбрасывает дробную часть
+    float rounded = sum/count; // среднее арифметическое
+    int res = int(rounded + 0.5); // приведение к int отбрасывает дробную часть
 
     return res;
 }
