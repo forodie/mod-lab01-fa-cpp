@@ -53,7 +53,6 @@ unsigned int faStr2(const char *str) {
 }
 
 unsigned int faStr3(const char *str) {
-    // res - результат (средняя длина слова в строке),
     // count - для подсчета кол-ва слов,
     // sum - для подсчета кол-ва букв в строке
     // flag - проверка на конец слова
@@ -73,7 +72,5 @@ unsigned int faStr3(const char *str) {
     if (flag != false) { count++; } // проверяем последнее слово
 
     float rounded = sum/count; // среднее арифметическое
-    int res = static_cast<int>(rounded + 0.5); // приведение к int отбрасывает дробную часть
-
-    return res;
+    return static_cast<int>(rounded + 0.5); // приведение к int отбрасывает дробную часть
 }
